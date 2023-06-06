@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ArtistModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<html>
+    <head>
+        <style>
+            body, h1, h2, h3, p, ul, li {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+            }
+
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            nav ul li {
+                display: inline;
+                margin-right: 20px;
+            }
+
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            #track-list {
+                margin-bottom: 20px;
+            }
+
+            .track {
+                display: inline-block;
+                width: 200px;
+                margin-right: 20px;
+                background-color: #fff;
+                padding: 10px;
+            }
+
+            .track img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .track h3 {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            .track p {
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+
+            .track button {
+                padding: 5px;
+                background-color: #222;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+
+            footer {
+                background-color: #222;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <section id="music-list">
+                @{
+                    if (Model is not null)
+                    {
+                        <h2>Results</h2>
+                        <ul class="arist-list" style="list-style-type: none">
+                            @foreach (var artist in Model)
+                            {
+                                <li><a href="@Url.Action("Index", "Artist", new { id = @artist.Id })" class="artist">@artist.Name</a></li>
+                            }
+                        </ul>
+                    }
+                }
+            </section>
+        </main>
+    </body>
+</html>

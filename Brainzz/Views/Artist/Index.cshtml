@@ -1,0 +1,32 @@
+﻿@model ArtistModel
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="text-center">
+    <h1>@Model.Name</h1>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var release in Model.Releases)
+                    {
+                        <tr>
+                            <td><a href="@Url.Action("Index", "Release", new { id = @release.Id })" style="display: block">@release.Title</a></td>
+                            <td>@release.Date</td>
+                            <td>@release.Country</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

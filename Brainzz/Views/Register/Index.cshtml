@@ -1,0 +1,54 @@
+﻿<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Register Page</title>
+
+      <!-- Custom CSS -->
+      <style>
+        body {
+          background-color: #f2f2f2;
+        }
+
+        .register-container {
+          max-width: 500px;
+          margin: 0 auto;
+          padding: 40px;
+          margin-top: 100px;
+          background-color: #fff;
+          border-radius: 5px;
+          box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.1);
+        }
+
+        .register-container h2 {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+
+        .register-container form {
+          animation: fadeIn 1s;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container register-container">
+        <h2>Register</h2>
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "d-flex" }))
+        {
+        <div class="form-group mb-1">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="Username" placeholder="Enter username">
+          </div>
+            <div class="form-group  mb-1">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="Password" placeholder="Enter password">
+          </div>
+            <div class="form-group  mb-1">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" name="ConfirmPassword" placeholder="Confirm password">
+          </div>
+          <input type="submit" name="submit" class="btn btn-primary form-control" value="Register" />
+        }
+      </div>
+    </body>
+</html>
